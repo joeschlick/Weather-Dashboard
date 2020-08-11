@@ -8,3 +8,8 @@
 .card {
     width: 150px;
 }
+
+.buttonSearch {
+    display: block;
+    width: 80%;
+}
