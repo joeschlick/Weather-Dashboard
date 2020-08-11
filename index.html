@@ -22,19 +22,16 @@
     <header>
         <h1 class="bg-dark text-white text-center p-2">Weather Dashboard</h1>
     </header>
-    <div class="container m-0">
+    <div class="container-fluid m-1">
         <div class="row" id="search-row">
             <!-- Search section -->
             <div class="col-3 d-flex" >
-              <div class="card-body bg-light pb-5">
-                <p>Search for a City:</p>
+              <div class="container-fluid bg-light pb-5">
                 <input type="search" name="" placeholder="Enter city here" id="search-field">
                 <button class="btn btn-primary mb-1" type="submit" id="run-search">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
-                <div class="card-body" id="city-list">
-                  <ul id="saved-cities"></ul>
-                </div>
+                <div class="container" id="saved-cities"></div>
               </div>
             
             </div>
