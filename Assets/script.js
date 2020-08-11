@@ -1,13 +1,19 @@
 $(document).ready(function () {
   var runSearch = $("#run-search");
-  var savedCities = $("#saved-cities");
+
+  
+  $("#saved-cities").val(localStorage.getItem("#search-field"));
 
   runSearch.click(function(event) {
     event.preventDefault();
     var searchField = $("#search-field").val();
     console.log(searchField);
     window.localStorage.setItem("#search-field", searchField);
-    console.log(localStorage);
+    var savedCities = $("#saved-cities");
+    var storedCity = localStorage.getItem("#search-field")
+    console.log(storedCity)
+    savedCities.append(storedCity)
+
 
     $.ajax({
       method: "GET",
@@ -65,18 +71,17 @@ $(document).ready(function () {
 
       for (let i = 0; i < response.list.length; i++) {
          if (response.list[i].dt_txt.indexOf("15:00:00") !== -1) {
-            var col = $("<div>").addClass("col-md-2 m-2")
-             var fcastCard = $("<div>").addClass("card bg-primary text-white p-2")
-             var fcastBody = $("<div>").addClass("card-body p-2")
-             var fcastDateEl = $("<h6>").addClass("card-title").text(new Date(response.list[i].dt_txt).toLocaleDateString())
-             var fcastIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + ".png")
-             var fcastTemp = $("<p>").addClass("card-text").text("Temp: " + response.list[i].main.temp + " °F")
-             var fcastHumidity = $("<p>").addClass("card-text").text("Humidity: " + response.list[i].main.humidity + " %")
-            col.append(fcastCard.append(fcastBody.append(fcastDateEl,fcastIcon,fcastTemp,fcastHumidity)))
-            $("#forecast-field").append(col)
-         }
-          
-      }
+                var col = $("<div>").addClass("col-md-2 m-2")
+                var fcastCard = $("<div>").addClass("card bg-primary text-white p-2")
+                var fcastBody = $("<div>").addClass("card-body p-2")
+                var fcastDateEl = $("<h6>").addClass("card-title").text(new Date(response.list[i].dt_txt).toLocaleDateString())
+                var fcastIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + ".png")
+                var fcastTemp = $("<p>").addClass("card-text").text("Temp: " + response.list[i].main.temp + " °F")
+                var fcastHumidity = $("<p>").addClass("card-text").text("Humidity: " + response.list[i].main.humidity + " %")
+                col.append(fcastCard.append(fcastBody.append(fcastDateEl,fcastIcon,fcastTemp,fcastHumidity)))
+                $("#forecast-field").append(col)
+            }   
+        }
 
       $.ajax({
         method: "GET",
