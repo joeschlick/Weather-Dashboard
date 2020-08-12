@@ -23,7 +23,7 @@ $(document).ready(function () {
       $("#saved-cities").prepend(btn);
     }
   };
-  
+
   //On click empties display fields and gets weather for the city named in each button
   $("button").on("click", function () {
     btnVal = $(this).attr("id");
@@ -61,13 +61,13 @@ $(document).ready(function () {
       
       //Gets icon png 
       var iconCode = response.list[0].weather[0].icon;
-      var iconURL = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+      var iconURL = "https://openweathermap.org/img/wn/" + iconCode + ".png";
       console.log(iconURL);
 
       //Gets coordinates from forecast API and adds them to UV API 
       var uvLat = response.city.coord.lat;
       var uvLon = response.city.coord.lon;
-      var uvIndexUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=53d2f99f562f36701d4bf49111eb24c6&lat=" + uvLat + "&lon=" + uvLon;
+      var uvIndexUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=53d2f99f562f36701d4bf49111eb24c6&lat=" + uvLat + "&lon=" + uvLon;
 
       //Creates, appends, and populates divs for the Current Weather field
       var weatherField = $("#weather-field");
@@ -99,6 +99,7 @@ $(document).ready(function () {
       humidityEl.text("Humidity: " + response.list[0].main.humidity + " %");
       windEl.text("Wind Speed: " + response.list[0].wind.speed + " MPH");
       uvIndexEl.text("UV Index: ");
+      console.log(uvIndexUrl)
 
       //Accesses the UV API and color codes results based on value
       $.ajax({
@@ -125,7 +126,7 @@ $(document).ready(function () {
           var fcastCard = $("<div>").addClass("card bg-primary text-white p-2");
           var fcastBody = $("<div>").addClass("card-body p-2");
           var fcastDateEl = $("<h6>").addClass("card-title").text(new Date(response.list[i].dt_txt).toLocaleDateString());
-          var fcastIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon +".png");
+          var fcastIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon +".png");
           var fcastTemp = $("<p>").addClass("card-text").text("Temp: " + response.list[i].main.temp + " °F");
           var fcastHumidity = $("<p>").addClass("card-text").text("Humidity: " + response.list[i].main.humidity + " %");
           col.append(fcastCard.append(fcastBody.append(fcastDateEl, fcastIcon, fcastTemp, fcastHumidity)));
