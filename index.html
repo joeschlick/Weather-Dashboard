@@ -18,42 +18,44 @@
     <title>JDS Weather Dashboard</title>
     <link rel="stylesheet" type="text/css" href="./Assets/style.css" />
   </head>
+
+  <!-- body -->
   <body>
+    <!-- header -->
     <header>
         <h1 class="bg-dark text-white text-center p-2">Weather Dashboard</h1>
     </header>
+
     <div class="container-fluid m-1">
         <div class="row" id="search-row">
+
             <!-- Search section -->
             <div class="col-3 d-flex" >
               <div class="container-fluid bg-light pb-5">
-                <input type="search" name="" placeholder="Enter city here" id="search-field">
+                <input type="search" placeholder="Enter city here" id="search-field">
                 <button class="btn btn-primary mb-1" type="submit" id="run-search">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
                 <div class="container" id="saved-cities"></div>
               </div>
-            
             </div>
+
             <!-- Main section -->
             <div class="col-9" >
               <div class="row" id="weather-row">
                 <!-- Area for weather data -->
                 <div class="card-body bg-light mb-1" id="weather-field">
-                  <h2>Current Weather</h2>
+                  <h2 class="mb-2 bg-secondary text-white mr-2 p-2">Current Weather</h2>
                 </div>
               </div>
             
+              <!-- Area for 5 day forecast -->
               <div class="row" id="forecast-row">
-                <!-- Area for weather data -->
                 <div class="card-body bg-light" id="forecast-field">
-                  <h2>5 Day Forecast</h2>
+                  <h2 class="mb-2 bg-secondary text-white mr-2 p-2">5 Day Forecast</h2>
                 </div>
-
               </div>
-
             </div>
-
         </div>
     </div>
 
@@ -62,7 +64,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+    <!-- Script.js link -->
     <script src="./Assets/script.js"></script>
+    <!-- jQuery link -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </body>
 </html>
